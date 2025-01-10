@@ -12,7 +12,7 @@ class EventNoticView extends GetView<PageLogic> {
       body: Center(
         child: Obx(
           () => controller.hagenes.value
-              ? const CircularProgressIndicator(color: Colors.orangeAccent)
+              ? const CircularProgressIndicator(color: Colors.purple)
               : buildError(),
         ),
       ),
@@ -26,7 +26,7 @@ class EventNoticView extends GetView<PageLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.aftkruih();
+              controller.gyisafk();
             },
             icon: const Icon(
               Icons.restart_alt,

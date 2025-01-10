@@ -3,6 +3,8 @@ import 'package:event_calendar/pages/event_add/event_add_binding.dart';
 import 'package:event_calendar/pages/event_add/event_add_view.dart';
 import 'package:event_calendar/pages/event_first/event_first_binding.dart';
 import 'package:event_calendar/pages/event_first/event_first_view.dart';
+import 'package:event_calendar/pages/event_notic/event_notic_binding.dart';
+import 'package:event_calendar/pages/event_notic/event_notic_view.dart';
 import 'package:event_calendar/pages/event_second/event_second_binding.dart';
 import 'package:event_calendar/pages/event_second/event_second_view.dart';
 import 'package:event_calendar/pages/event_tab/event_tab_binding.dart';
@@ -11,6 +13,8 @@ import 'package:event_calendar/pages/event_third/event_third_binding.dart';
 import 'package:event_calendar/pages/event_third/event_third_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'db_event/picker_config.dart';
 
 Color primaryColor = const Color(0xff6873f7);
 Color bgColor = const Color(0xfffafafa);
@@ -29,7 +33,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Ens,
-      initialRoute: '/eventTab',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -81,8 +85,10 @@ class MyApp extends StatelessWidget {
   }
 }
 List<GetPage<dynamic>> Ens = [
+  GetPage(name: '/', page: () => const EventNoticView(), binding: EventNoticBinding()),
   GetPage(name: '/eventTab', page: () => EventTabPage(), binding: EventTabBinding()),
   GetPage(name: '/eventFirst', page: () => EventFirstPage(), binding: EventFirstBinding()),
+  GetPage(name: '/eventNotic', page: () => const DatePicker()),
   GetPage(name: '/eventSecond', page: () => EventSecondPage(), binding: EventSecondBinding()),
   GetPage(name: '/eventThird', page: () => EventThirdPage(), binding: EventThirdBinding()),
   GetPage(name: '/eventAdd', page: () => EventAddPage(), binding: EventAddBinding())
